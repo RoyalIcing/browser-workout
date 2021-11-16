@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "test": "playwright test --browser=all --workers=1"
+    "test": "playwright test --browser=all --workers=1 --timeout=0",
+    "test:chromium": "playwright test --browser=chromium --workers=1 --timeout=0",
+    "test:firefox": "playwright test --browser=firefox --workers=1 --timeout=0",
+    "test:webkit": "playwright test --browser=webkit --workers=1 --timeout=0"
   },
   "devDependencies": {
     "@playwright/test": "^1.17.0-next-alpha-nov-5-2021"
