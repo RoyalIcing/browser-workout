@@ -44,7 +44,7 @@ suite
         const processed = some(values, value => value > 990000);
     })
     .add('for of loop', () => {
-        const processed = some(values, value => value > 990000);
+        const processed = someIter(values, value => value > 990000);
     })
     .add('Math.max(...)', () => {
         const processed = Math.max(...fewerValues);
