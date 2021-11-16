@@ -1,4 +1,4 @@
-# Benchmarking common JavaScript operation across browsers
+# Benchmarking common JavaScript operations across browsers
 
 Install:
 

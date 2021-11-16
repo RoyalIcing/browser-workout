@@ -13,6 +13,6 @@ test('Run benchmarks', async ({ page }) => {
         });
     });
 
-    await page.goto(`file://${process.cwd()}/bench.html`, { timeout: 0 });
+    await page.goto(`file://${process.cwd()}/bench.html`, { timeout: 120_000 });
     await benchmarkPromise;
 });
