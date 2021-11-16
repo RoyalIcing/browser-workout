@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "playwright test --browser=all --workers=1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.17.0-next-alpha-nov-5-2021"
+  }
+}
