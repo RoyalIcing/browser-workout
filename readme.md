@@ -40,17 +40,23 @@ reduce(Math.max) x 66,401 ops/sec ±0.16% (68 runs sampled)
 Results from running in GitHub Actions:
 
 ```
-Array.prototype.some x 94.12 ops/sec ±0.97% (54 runs sampled)
-for i++ loop x 1,460 ops/sec ±2.42% (61 runs sampled)
-for of loop x 119 ops/sec ±1.38% (56 runs sampled)
+Array.prototype.some x 65.73 ops/sec ±0.24% (52 runs sampled)
+for i++ loop x 1,254 ops/sec ±0.19% (65 runs sampled)
+for of loop x 498 ops/sec ±1.12% (65 runs sampled)
+Math.max(...) x 22,450 ops/sec ±0.29% (66 runs sampled)
+reduce(Math.max) x 6,804 ops/sec ±15.02% (64 runs sampled)
 
-Array.prototype.some x 130 ops/sec ±1.57% (55 runs sampled)
-for i++ loop x 132 ops/sec ±1.61% (53 runs sampled)
-for of loop x 134 ops/sec ±1.32% (57 runs sampled)
+Array.prototype.some x 115 ops/sec ±0.43% (59 runs sampled)
+for i++ loop x 109 ops/sec ±0.29% (57 runs sampled)
+for of loop x 69.92 ops/sec ±0.23% (52 runs sampled)
+Math.max(...) x 16,786 ops/sec ±14.35% (49 runs sampled)
+reduce(Math.max) x 4,552 ops/sec ±42.19% (27 runs sampled)
 
-Array.prototype.some x 969 ops/sec ±9.76% (58 runs sampled)
-for i++ loop x 1,877 ops/sec ±1.26% (60 runs sampled)
-for of loop x 998 ops/sec ±38.36% (60 runs sampled)
+Array.prototype.some x 364 ops/sec ±5.60% (60 runs sampled)
+for i++ loop x 631 ops/sec ±0.51% (52 runs sampled)
+for of loop x 344 ops/sec ±8.19% (64 runs sampled)
+Math.max(...) x 14,306 ops/sec ±1.30% (64 runs sampled)
+reduce(Math.max) x 54,970 ops/sec ±0.15% (66 runs sampled)
 ```
 
 ## Thanks
