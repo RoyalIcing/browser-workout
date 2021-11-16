@@ -10,7 +10,7 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
+# env:
   # Force terminal colors. @see https://www.npmjs.com/package/colors
   # FORCE_COLOR: 1
 
