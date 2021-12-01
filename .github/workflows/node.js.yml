@@ -33,4 +33,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npx playwright install --with-deps
-    - run: npm run test
+    - run: npm run test:chromium
+    - run: npm run test:firefox
+    - run: npm run test:webkit

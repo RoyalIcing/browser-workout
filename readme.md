@@ -13,6 +13,55 @@ To run the benchmarks:
 npm t
 ```
 
+Results from running in GitHub Actions:
+
+```
+# Chromium
+Array.prototype.some x 78.59 ops/sec ±0.16% (58 runs sampled)
+for i++ loop x 1,500 ops/sec ±0.19% (65 runs sampled)
+for of loop x 601 ops/sec ±0.16% (66 runs sampled)
+count evens with .filter().length x 45.56 ops/sec ±4.01% (49 runs sampled)
+count evens with for i++ loop x 596 ops/sec ±0.16% (67 runs sampled)
+count evens with for of loop x 534 ops/sec ±0.21% (64 runs sampled)
+Math.max(...) x 26,940 ops/sec ±0.16% (68 runs sampled)
+reduce(Math.max) x 10,564 ops/sec ±21.20% (65 runs sampled)
+join strings with reduce(a + b) x 10.22 ops/sec ±5.41% (29 runs sampled)
+join strings with .join() x 21.75 ops/sec ±6.39% (40 runs sampled)
+join numbers with reduce(a + b) x 4.49 ops/sec ±8.92% (15 runs sampled)
+join numbers with .join() x 4.91 ops/sec ±12.02% (17 runs sampled)
+join numbers with .map().join() x 4.67 ops/sec ±3.92% (16 runs sampled)
+
+# Firefox
+Array.prototype.some x 125 ops/sec ±0.35% (58 runs sampled)
+for i++ loop x 155 ops/sec ±0.43% (61 runs sampled)
+for of loop x 90.28 ops/sec ±0.36% (58 runs sampled)
+count evens with .filter().length x 76.49 ops/sec ±2.52% (50 runs sampled)
+count evens with for i++ loop x 367 ops/sec ±0.22% (65 runs sampled)
+count evens with for of loop x 108 ops/sec ±0.25% (56 runs sampled)
+Math.max(...) x 15,791 ops/sec ±12.69% (46 runs sampled)
+reduce(Math.max) x 4,859 ops/sec ±43.08% (28 runs sampled)
+join strings with reduce(a + b) x 23.19 ops/sec ±7.99% (28 runs sampled)
+join strings with .join() x 51.28 ops/sec ±3.06% (45 runs sampled)
+join numbers with reduce(a + b) x 9.82 ops/sec ±8.88% (21 runs sampled)
+join numbers with .join() x 34.80 ops/sec ±2.24% (46 runs sampled)
+join numbers with .map().join() x 10.86 ops/sec ±6.53% (30 runs sampled)
+
+# WebKit
+Array.prototype.some x 419 ops/sec ±10.16% (55 runs sampled)
+for i++ loop x 752 ops/sec ±0.08% (51 runs sampled)
+for of loop x 366 ops/sec ±5.28% (64 runs sampled)
+count evens with .filter().length x 158 ops/sec ±4.62% (59 runs sampled)
+count evens with for i++ loop x 541 ops/sec ±0.14% (65 runs sampled)
+count evens with for of loop x 284 ops/sec ±0.16% (63 runs sampled)
+Math.max(...) x 18,468 ops/sec ±1.79% (66 runs sampled)
+reduce(Math.max) x 59,233 ops/sec ±0.27% (66 runs sampled)
+join strings with reduce(a + b) x 33.63 ops/sec ±7.32% (37 runs sampled)
+join strings with .join() x 38.07 ops/sec ±1.04% (50 runs sampled)
+join numbers with reduce(a + b) x 10.47 ops/sec ±6.67% (23 runs sampled)
+join numbers with .join() x 16.18 ops/sec ±0.65% (31 runs sampled)
+join numbers with .map().join() x 6.03 ops/sec ±45.12% (24 runs sampled)
+```
+
 Results from MacBook Pro M1 Pro on Low Power Mode:
 
 ```
@@ -36,28 +85,6 @@ for i++ loop x 1,775 ops/sec ±0.19% (69 runs sampled)
 for of loop x 548 ops/sec ±0.17% (67 runs sampled)
 Math.max(...) x 36,006 ops/sec ±0.44% (67 runs sampled)
 reduce(Math.max) x 66,401 ops/sec ±0.16% (68 runs sampled)
-```
-
-Results from running in GitHub Actions:
-
-```
-Array.prototype.some x 65.73 ops/sec ±0.24% (52 runs sampled)
-for i++ loop x 1,254 ops/sec ±0.19% (65 runs sampled)
-for of loop x 498 ops/sec ±1.12% (65 runs sampled)
-Math.max(...) x 22,450 ops/sec ±0.29% (66 runs sampled)
-reduce(Math.max) x 6,804 ops/sec ±15.02% (64 runs sampled)
-
-Array.prototype.some x 115 ops/sec ±0.43% (59 runs sampled)
-for i++ loop x 109 ops/sec ±0.29% (57 runs sampled)
-for of loop x 69.92 ops/sec ±0.23% (52 runs sampled)
-Math.max(...) x 16,786 ops/sec ±14.35% (49 runs sampled)
-reduce(Math.max) x 4,552 ops/sec ±42.19% (27 runs sampled)
-
-Array.prototype.some x 364 ops/sec ±5.60% (60 runs sampled)
-for i++ loop x 631 ops/sec ±0.51% (52 runs sampled)
-for of loop x 344 ops/sec ±8.19% (64 runs sampled)
-Math.max(...) x 14,306 ops/sec ±1.30% (64 runs sampled)
-reduce(Math.max) x 54,970 ops/sec ±0.15% (66 runs sampled)
 ```
 
 ## Thanks

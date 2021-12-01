@@ -38,6 +38,34 @@ function someIter(list, predicate) {
 }
 
 suite
+    // .add('async: noop', {
+    //     defer: true,
+    //     async fn(deferred) {
+    //         deferred.resolve();
+    //     }
+    // })
+    // .add('async: await null', {
+    //     defer: true,
+    //     async fn(deferred) {
+    //         await null;
+    //         deferred.resolve();
+    //     }
+    // })
+    // .add('async: await null x 2', {
+    //     defer: true,
+    //     async fn(deferred) {
+    //         await null;
+    //         await null;
+    //         deferred.resolve();
+    //     }
+    // })
+    // .add('async: await Promise.resolve()', {
+    //     defer: true,
+    //     async fn(deferred) {
+    //         await Promise.resolve();
+    //         deferred.resolve();
+    //     }
+    // })
     .add('Array.prototype.some', () => {
         const processed = values.some(value => value > 990000);
     })
