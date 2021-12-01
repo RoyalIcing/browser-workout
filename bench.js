@@ -1,6 +1,7 @@
 const suite = new Benchmark.Suite();
 
 const values = [];
+const existingPromise = Promise.resolve();
 
 for (let i = 0; i < 1000000; i++) {
     values.push(i);
@@ -38,34 +39,79 @@ function someIter(list, predicate) {
 }
 
 suite
-    // .add('async: noop', {
-    //     defer: true,
-    //     async fn(deferred) {
-    //         deferred.resolve();
-    //     }
-    // })
-    // .add('async: await null', {
-    //     defer: true,
-    //     async fn(deferred) {
-    //         await null;
-    //         deferred.resolve();
-    //     }
-    // })
-    // .add('async: await null x 2', {
-    //     defer: true,
-    //     async fn(deferred) {
-    //         await null;
-    //         await null;
-    //         deferred.resolve();
-    //     }
-    // })
-    // .add('async: await Promise.resolve()', {
-    //     defer: true,
-    //     async fn(deferred) {
-    //         await Promise.resolve();
-    //         deferred.resolve();
-    //     }
-    // })
+    .add('generate random number', {
+        fn() {
+            Math.random();
+        }
+    })
+    .add('add two random numbers', {
+        fn() {
+            Math.random() + Math.random();
+        }
+    })
+    .add('async: noop', {
+        defer: true,
+        fn(deferred) {
+            deferred.resolve();
+        }
+    })
+    .add('async: await null', {
+        defer: true,
+        fn(deferred) {
+            (async () => {
+                await null;
+            }).call().then(() => {
+                deferred.resolve();
+            });
+        }
+    })
+    .add('async: await null x 2', {
+        defer: true,
+        fn(deferred) {
+            (async () => {
+                await null;
+                await null;
+            }).call().then(() => {
+                deferred.resolve();
+            });
+        }
+    })
+    .add('async: .then existing Promise.resolve()', {
+        defer: true,
+        fn(deferred) {
+            existingPromise.then(() => {
+                deferred.resolve();
+            });
+        }
+    })
+    .add('async: await existing Promise.resolve()', {
+        defer: true,
+        fn(deferred) {
+            (async () => {
+                await existingPromise;
+            }).call().then(() => {
+                deferred.resolve();
+            });
+        }
+    })
+    .add('async: .then fresh Promise.resolve()', {
+        defer: true,
+        fn(deferred) {
+            Promise.resolve().then(() => {
+                deferred.resolve();
+            });
+        }
+    })
+    .add('async: await fresh Promise.resolve()', {
+        defer: true,
+        fn(deferred) {
+            (async () => {
+                await Promise.resolve();
+            }).call().then(() => {
+                deferred.resolve();
+            });
+        }
+    })
     .add('Array.prototype.some', () => {
         const processed = values.some(value => value > 990000);
     })
@@ -74,9 +120,6 @@ suite
     })
     .add('for of loop', () => {
         const processed = someIter(values, value => value > 990000);
-    })
-    .add('count evens with .filter().length', () => {
-        const processed = values.filter(n => n % 2 === 0).length;
     })
     .add('count evens with for i++ loop', () => {
         let count = 0;
@@ -92,6 +135,22 @@ suite
             if (n % 2 === 0) {
                 count++;
             }
+        }
+    })
+    .add('count evens with .filter().length', () => {
+        const processed = values.filter(n => n % 2 === 0).length;
+    })
+    .add('count evens with generator function', () => {
+        function* filtered() {
+            for (const n of values) {
+                if (n % 2 === 0) {
+                    yield n;
+                }
+            }
+        }
+        let count = 0;
+        for (const n of filtered()) {
+            count++;
         }
     })
     .add('Math.max(...)', () => {
@@ -119,6 +178,7 @@ suite
         const benchmark = event.target;
 
         console.log(benchmark.toString());
+        // console.log(JSON.stringify(event));
     })
     .on('complete', () => console.log('Benchmark suite complete.'))
     .run();
