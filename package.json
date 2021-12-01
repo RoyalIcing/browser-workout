@@ -6,6 +6,6 @@
     "test:webkit": "playwright test --browser=webkit --workers=1 --timeout=0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.17.0-next-alpha-nov-5-2021"
+    "@playwright/test": "^1.17.0"
   }
 }

@@ -4,6 +4,7 @@ Install:
 
 ```bash
 npm ci
+npx playwright install
 ```
 
 To run the benchmarks:
