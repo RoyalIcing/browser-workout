@@ -112,6 +112,15 @@ suite
             });
         }
     })
+    .add('new TextEncoder()', () => {
+        const encoder = new TextEncoder();
+    })
+    .add('new TextEncoder().encode()', () => {
+        const encoded = new TextEncoder().encode('abcdefghijklmnopqrstuvwxyz');
+    })
+    .add('new TextDecoder()', () => {
+        const decoder = new TextDecoder();
+    })
     .add('Array.prototype.some', () => {
         const processed = values.some(value => value > 990000);
     })
