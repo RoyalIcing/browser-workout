@@ -6,6 +6,6 @@
     "test:webkit": "playwright test --browser=webkit --workers=1 --timeout=0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.23.2"
+    "@playwright/test": "^1.24.0"
   }
 }
